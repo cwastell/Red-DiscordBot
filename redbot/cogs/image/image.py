@@ -179,7 +179,7 @@ class Image(commands.Cog):
     async def gif(self, ctx, *keywords):
         """Retrieve the first search result from Giphy."""
         if keywords:
-            keywords = "+".join(keywords)
+            keywords = "%20".join(keywords)
         else:
             await ctx.send_help()
             return
@@ -193,7 +193,7 @@ class Image(commands.Cog):
             )
             return
 
-        url = "http://api.giphy.com/v1/gifs/search?&api_key={}&q={}".format(
+        url = "http://api.giphy.com/v1/gifs/translate?&api_key={}&s={}".format(
             giphy_api_key, keywords
         )
 
